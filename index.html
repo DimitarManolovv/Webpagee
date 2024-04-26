@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskC</title>
+    <!-- Include Space Grotesk font from Google Fonts -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+   
+    <style>
+        
+        .navbar {
+            color: black;
+            padding: 10px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+        }
+        .navbar a {
+            color: #01303A;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .navbar .left {
+            margin-right: auto; 
+            padding-left: 100px;
+            font-family: 'Space Grotesk'; 
+            font-size: 30px;
+            font-weight: bold; 
+            color: #01303A;
+        }
+        .navbar .middle a {
+            font-family: 'Inter'; 
+            text-align: center;
+            font-weight:normal;
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #3C4A47; 
+        }
+        .navbar .right {
+            margin-left: auto; 
+            font-family: "Inter";
+            font-weight: medium; 
+            padding-right: 100pt;
+            font-size: 16px;
+            color:#083C2F; 
+        }
+       
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap; 
+    }
+    .navbar a {
+        margin: 5px;
+        line-height: 1.5;
+    }
+    .navbar .right {
+        margin-left: auto; 
+    }
+    .job-request-container {
+        padding: 5px; 
+    }
+    .navbar .left {
+        font-size: 25px;
+        text-align: center;
+        padding-left: 80px;
+    }
+
+    .job-request {
+        font-size: 14px; 
+    }
+}
+        /* Styles for "Заявка за пратка" */
+        .job-request-container {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: white;
+            border: 2px solid #01303A;
+            border-radius: 5px;
+        }  
+        .job-request {
+            font-family: 'Inter';
+            font-weight:semi bold;
+            font-size: 16px;
+            color: #01303A;
+        }
+        .job-request-container:hover {
+            background-color: orange;
+            color: white;
+        }
+        .additional-text {
+            text-align: center; 
+            margin-bottom: 0px;
+            margin-top: 10px; 
+            width: 100%;
+            font-family: 'Space Grotesk'; 
+            font-weight: bolder;
+            font-size: 60px; 
+            color: #01303A; 
+            line-height: 1px;
+        }
+        .main-photo {
+    display: block;
+    margin: 0 auto;
+    width: 969px; 
+    height: 690px; 
+}
+
+        @media screen and (max-width: 600px) {
+    /* Additional Text Adjustments */
+    .additional-text {
+        font-size: 26px;
+        line-height: 0.4;
+        margin-top: 40px; /* Adjust top margin for better spacing */
+        margin-bottom: 40px; /* Adjust bottom margin for better spacing */
+    }
+    .main-photo {
+        width: 100%; /* Makes the image occupy the full width of its container */
+        max-height: 300px; /* Example height for smaller screens */
+    }
+}
+        .choices {
+            text-align: left;
+            margin-top: 70px;
+            padding-left: 255px;
+            font-family: 'Space Grotesk';
+            font-size: 35px;
+            color:#01303A;
+            font-weight: bold;
+        }
+        @media screen and (max-width: 768px) {
+    .choices {
+        text-align: left; 
+        padding-left: 0; 
+    }
+}
+        .bullets {
+            text-align: left;
+            padding-left: 255px;
+            font-family: "Inter";
+            font-weight: regular;
+            font-size: 18px;
+            color: #01303A;
+        }
+        @media screen and (max-width: 768px) {
+    .bullets{
+        text-align: left; 
+        padding-left: 0; 
+        font-size: 16px;
+    }
+}
+        .benefits {
+            text-align: left;
+            padding-left: 255px;
+            font-family: "Space Grotesk";
+            font-size: 35px;
+            color:#01303A;
+            font-weight: bold;
+        }
+        @media screen and (max-width: 768px) {
+    .benefits {
+        text-align: left; 
+        padding-left: 0; 
+    }
+}
+        .focusss {
+            text-align: left;
+            padding-left: 255px;
+            font-family: "Inter";
+            font-weight: regular;
+            font-size: 18px;
+            color:#01303A;
+            margin-bottom: 60px;
+        }
+        @media screen and (max-width: 768px) {
+    .focusss {
+        text-align: left; 
+        padding-left: 0; 
+        font-size: 16px;
+    }
+    }
+        .form-container {
+    background-color: #394649; 
+    color: white; 
+    position: relative;
+    padding: 20px; 
+    border-radius: 10px; 
+    max-width: 1600px;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; 
+    margin-bottom: 200px; /* Adjust as needed to create enough space */
+    text-align: center; 
+    font-family: 'Inter'; 
+}
+@media screen and (max-width: 768px) {
+    .form-container {
+        padding: 10px; 
+        max-width: 90%; 
+        margin: 20px auto; 
+        margin-bottom: 80px; 
+    }
+}
+
+        .form-container h2 {
+            font-size: 55px; 
+            font-family: "Space Grotesk";
+            font-weight: bold; 
+            margin-bottom: -30px;
+         line-height: 0.7;
+         text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+    .form-container h2 {
+        text-align: center; 
+        padding-left: 0; 
+        font-size: 25px;
+        line-height: 1.4;
+    }
+    }
+        .form-container p {
+            font-size: 18px; 
+            margin-top: 60px;
+            line-height: 0.7;
+            margin-bottom: -40px;
+            font-family: "Inter";
+            font-weight: regular; 
+            text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+            .form-container p {
+            text-align: center; 
+        padding-left: 0; 
+        font-size: 17px;
+        line-height: 1.4;
+            }
+        }
+        .mobile-input-container .form-field {
+    margin-top: 90px;
+    height: 40px;
+    width: 240px;
+    position: relative;
+}
+@media screen and (max-width: 768px) {
+    .mobile-input-container .form-field {
+    margin-top: 70px; 
+    margin-right: 100px; 
+    width: 40%;  
+    height: 30px;
+    }
+}
+.form-field {
+    width:400px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    margin-left:50px;
+    margin-right:160px;
+}
+@media screen and (max-width: 768px) {
+    .form-field {
+        width: 20%; /* Set width to a percentage for better responsiveness */
+        padding: 10px; /* Adjust padding */
+        margin: 0 auto; /* Center the element horizontally */
+        margin-bottom: 20px; /* Adjust bottom margin */
+        align-items: left;
+    }
+}
+
+.mobile-input-container input {
+    font-size: 18px;
+    padding-left: 20px;
+    font-family: 'Font Awesome\ 5 Free';
+}
+@media screen and (max-width: 768px) {
+    .mobile-input-container input {
+        font-size: 12px;
+    }
+}
+.button-container {
+    text-align: right; 
+    margin-top: -91.5px; 
+    margin-right: 300px;
+    padding-right: 230px; 
+}
+@media screen and (max-width: 768px) {
+    .button-container {
+    text-align: center; /* Center-align the button */
+    margin-top: -91.7px; /* Adjust the top margin */
+    margin-left: 150px; /* Remove the right margin */
+    padding-right: 0; /* Remove the right padding */
+}
+}
+         .submit-button {
+  padding-left: 20px;
+    margin-bottom: 200px;
+    text-align: center;
+    height: 62px;
+    width: 137px;
+    background-color: #E7F874; 
+    border:none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    color: #083C2F;
+    font-family: "Inter";
+    font-weight: bolder;
+}
+@media screen and (max-width: 768px) {
+    .submit-button {
+    height:51.5px;
+    width: 120px;
+    font-size: 12px;
+}
+}
+.offerss {
+    font-size: 35px; 
+     margin-top: -70px;
+     padding-left: 130px;
+     color: #01303A;
+     font-family: "Space Grotesk";
+      font-weight: bolder; 
+      text-align: left;
+}
+@media screen and (max-width: 768px) {
+    .offerss {
+        text-align: left; 
+        padding-left: 0;
+}
+}
+.photo-container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange items horizontally */
+    align-items: center;
+    padding-left: 65px;
+    text-align: center;
+    
+}
+
+.photo-container img {
+    width: 416px;
+    height: 364px; 
+    display: inline-block;
+    margin-right: 50px;
+    
+}
+@media screen and (max-width: 768px) {
+    .photo-container {
+        flex-direction: column; 
+        padding-left: 0; 
+    }
+
+    .photo-container img {
+        width: 100%; 
+        height: auto; 
+        margin-right: 0; 
+        margin-bottom: 20px; 
+    }
+        .photo-container p {
+            font-size: 18px;
+    }
+}
+.photo-container p {
+    color:#01303A; 
+    font-family: "Space Grotesk";
+    font-weight: bolder;
+    margin-top: 10px; 
+    font-size: 24px;
+    text-align: center;
+    padding-right: 30px;
+    margin-bottom: 50px;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="left">
+            <a href="#">Website</a>
+        </div>
+        <div class="middle">
+            <a href="#">Начало</a>
+            <a href="#">За нас</a>
+            <a href="#">Услуги</a> 
+            <a href="#">Цени</a> 
+            <a href="#">Как работи</a> 
+            <a href="#">Контакти</a>
+        </div>
+        <div class="right">
+            <a href="#">Профил</a>
+            <!-- Adding "Заявка за пратка" with the surrounding container -->
+            <div class="job-request-container">
+                <div class="job-request">Заявка за пратка</div>
+            </div>
+        </div>
+    </div>
+    <!-- End Navigation Bar -->
+
+    <!-- Additional Text -->
+    <div class="additional-text">
+        <p>Гъвкави решения за</p>
+        <p>сухопътен транспорт за</p>
+        <p>всеки клиент</p>
+    </div>
+    <img src="build/img/Image.png" alt = "First photo" class="main-photo">
+
+    <div class="choices">
+        <p>Решения</p>
+    </div>
+
+    <div class = "bullets">
+        <p>Фокусът ни върху клиентите е същността на нашата работа. Ние доставяме услуги за всички видове бизнес -  от малки местни предприятия до мултинационални компании.</p>
+
+    <p>Ние обработваме вашата пратка като всяка друга голяма товарна пратка – старателно и професионално.</p>
+    <ul>
+        <li>Решения за всички видове стоки (конвенционални, изискващи температурен режим, опасни товари)</li>
+        <li>Превоз на стоки от и до Балканите и всички страни на ЕС, цели и частични товари</li>
+        <li>Взимане на стоки и доставки за от и в България</li>
+        <li>Съчетаване на дълги и къси дестинации за ефективно планиране и разход</li>
+        <li>Регулярни групажни линии</li>
+        <li>Транспортни услуги до Турция и Близкия изток</li>
+        <li>Спазване на изискванията за качество и стандарти на клиентите и/или на техни специфични изисквания</li>
+    </ul>
+</div>
+<div class = "benefits" >
+    <p>Предимства</p>
+</div>
+<div class = "focusss" >
+    <p>Фокусът ни върху клиентите е същността на нашата работа. Ние доставяме услуги за всички видове бизнес – от малки местни предприятия до мултинационални компании.
+
+        <p>Ние обработваме вашата пратка като всяка друга голяма товарна пратка – старателно и професионално.</p>
+</div>
+<div class="form-container">
+    <h2>Готови ли сте да</h2>
+         <h2>работим заедно?</h2>
+
+         <p>Оставете вашият телефон и ние ще се свържем с вас,</p>
+             <p>за да отговорим на всички въпроси</p>
+    <form>
+        <div class="mobile-input-container">
+                <input type="tel" id="mobile-number" class="form-field" placeholder="&#xf0e0; Мобилен номер" required>
+        </div>
+        <br>
+        <div class="button-container">
+            <button type="submit" class="submit-button">Изпрати</button>
+        </div>
+    </form>
+
+    <div class="offerss">
+        <h3>Други услуги</h3>
+    </div>
+    <div class="photo-container">
+        <div>
+            <img src="build/img/ADR.png" alt="Photo 1">
+            <p class="photo text"> Опасни товари (ADR) </p>
+    </div>
+    <div>
+        <img src="build/img/freezer.png" alt="Photo 2">
+        <p class="photo-text">Хладилен транспорт</p>
+    </div>
+    <div>
+        <img src="build/img/Containers.png" alt="Photo 3">
+        <p class="photo-text">Извънгабаритни товари </p>
+    </div>
+    <!-- End Image -->
+</body>
+</html>
